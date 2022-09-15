@@ -52,3 +52,5 @@ def front_back(str):
   else:
     return str[-1] + str[1:len(str)-1] + str[0] #swap first and last chars
 
+def front3(str):
+  return str[0:3]*3
