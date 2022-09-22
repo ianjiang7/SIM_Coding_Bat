@@ -29,6 +29,10 @@ def centered_average(nums):
 def sum13(nums):
   n = 0
   for i in range(len(nums)):
+    if i == 0:
+      if nums[i] != 13:
+        n+= nums[i]
+        continue
     if nums[i] != 13 and nums[i-1] !=13:
       n += nums[i]
   return n
@@ -38,3 +42,33 @@ def sum13(nums):
 # sum13([1, 1]) → 2
 # sum13([1, 2, 2, 1, 13]) → 6
 
+#Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
+
+def sum67(nums):
+  inside = False
+  sum = 0
+  for i in nums:
+    if i == 6:
+      inside = True
+    elif inside == False:
+      sum += i
+    elif i == 7:
+      inside = False
+  return sum
+
+#sum67([1, 2, 2])
+#sum67([1, 2, 2, 6, 99, 99, 7])
+#sum67([1, 1, 6, 7, 2])
+
+#Given an array of ints, return True if the array contains a 2 next to a 2 somewhere.
+
+def has22(nums):
+  for i in range(len(nums)-1):
+    if nums[i] == 2 and nums[i+1] == 2:
+      return True
+  return False
+
+
+#has22([1, 2, 2]) → True
+#has22([1, 2, 1, 2]) → False
+#has22([2, 1, 2]) → False
